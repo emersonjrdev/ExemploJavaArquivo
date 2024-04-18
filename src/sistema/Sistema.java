@@ -2,55 +2,38 @@ package sistema;
 
 import java.util.Scanner;
 
+import models.Produto;
+import models.Usuario;
 import service.HandleMenu;
+import service.ProdutoMenu;
 
 public class Sistema {
 
 	public static void main(String[] args) {
-		
 		Scanner sc = new Scanner(System.in);
 		HandleMenu hm = new HandleMenu();
 		int opcao = 0;
+		ProdutoMenu pm = new ProdutoMenu();
+		Usuario user = new Usuario();
+		Produto prod = new Produto();
+
 		do {
-			System.out.println("1 - Criar \n2 - Editar \n3 - Deletar \n4 - Listar \n5 - Visualizar ID \n6 - Login \n9 - Sair \n");
+			hm.firstMenu();
 			opcao = sc.nextInt();
-			
 			switch (opcao) {
-			case 1 :{
-				hm.criar();
+			case 1: {
+				user.UserMenu();
 				continue;
-			}
-			case 2:{
-				hm.editar();
+			} case 2: {
+				prod.ProdMenu();
 				continue;
-			}
-			case 3:{
-				hm.deletar();
-				continue;
-			}
-			case 4:{
-				hm.listar();
-				continue;
-			}
-			case 5:{
-				hm.visualizar();
-				continue;
-			}
-			case 6:{
-				hm.login();
-				continue;
-			}
-			case 9:{
-				hm.sair();		
 			}
 			default:
-				System.err.println("Opcçao Invalida");
-				continue;
+				throw new IllegalArgumentException("Unexpected value: " + opcao);
 			}
-			
 		} while (opcao != 9);
-		sc.close();
 
-	}
+ 
+}
 
 }
