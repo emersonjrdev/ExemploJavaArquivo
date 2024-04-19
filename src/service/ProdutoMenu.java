@@ -59,6 +59,16 @@ Scanner sc = new Scanner(System.in);
 		gp.detalharProduto(id);
 	}
 	
+	public void exibirSomaPrecosProdutos() {
+        double soma = gp.somarPrecosProdutos();
+        System.out.println("Soma dos preços de todos os produtos: " + soma);
+    }
+
+    public void exibirTotalProdutos() {
+        int total = gp.contarProdutos();
+        System.out.println("Total de produtos cadastrados: " + total);
+    }
+	
 	
 
 	public void sair() {

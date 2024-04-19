@@ -8,7 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import models.Usuario;
 
 public class GerenciadorDeUsuarios {
@@ -150,4 +149,17 @@ public class GerenciadorDeUsuarios {
 	    return false; 
 	}
 
+	public boolean trocarSenha(int id, String senhaAtual, String novaSenha) {
+		List<Usuario> usuarios = lerUsuarios();
+		
+		for (Usuario usuario : usuarios) {
+			if (usuario.getId() == id && usuario.getSenha().equals(senhaAtual)) {
+				usuario.setSenha(novaSenha);
+				reescreverArquivo(usuarios);
+				return true;
+			}
+		}
+		
+		return false;
+	}
 }

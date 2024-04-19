@@ -59,7 +59,7 @@ public class Usuario {
 		int opcao = 0;
 		
 		do {
-			System.out.println("1 - Criar \n2 - Editar \n3 - Deletar \n4 - Listar \n5 - Visualizar ID \n6 - Login \n9 - Sair \n");
+			System.out.println("1 - Criar \n2 - Editar \n3 - Deletar \n4 - Listar \n5 - Visualizar ID \n6 - Login \n7 - Trocar senha \n9 - Sair \n");
 			opcao = sc.nextInt();
 			
 			switch (opcao) {
@@ -85,6 +85,10 @@ public class Usuario {
 			}
 			case 6:{
 				hm.login();
+				continue;
+			}
+			case 7:{
+				hm.trocarSenha();
 				continue;
 			}
 			case 9:{

@@ -77,6 +77,21 @@ public class HandleMenu {
 		System.exit(0);
 	}
 	
+	public void trocarSenha() {
+		System.out.println("Digite o ID do usuário: ");
+		int id = sc.nextInt();
+		System.out.println("Digite a senha atual: ");
+		String senhaAtual = sc.next();
+		System.out.println("Digite a nova senha: ");
+		String novaSenha = sc.next();
+		
+		if (gs.trocarSenha(id, senhaAtual, novaSenha)) {
+			System.out.println("Senha alterada com sucesso!");
+		} else {
+			System.err.println("Não foi possível alterar a senha. Verifique o ID e a senha atual.");
+		}
+	}
+	
 	private int getNextId() {
 		List<Usuario> usuarios = gs.lerUsuarios();
 		int maxId = 0;
